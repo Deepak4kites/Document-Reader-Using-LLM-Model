@@ -1,0 +1,66 @@
+{
+    "fileName": "Screenshot_2024-06-24_at_11.20.08_AM.png",
+    "orgName": "CHEVRON ORONITE BRASIL LTDA",
+    "orderId": "4900035689",
+    "ocrBucketName": "",
+    "docType": "SHIPMENT_CONFIRMATION",
+    "bookingDetails": {
+        "carrierBookingNum": "",
+        "billOfLadingNum": "24.4.01.0063",
+        "referenceNumber": "",
+        "carrierName": "BERTSCHI GLOBAL TANK CONTAINERS BRASIL LTDA",
+        "originServiceMode": "",
+        "destinationServiceMode": "",
+        "placeOfOrigin": "SANTOS",
+        "placeOfDelivery": "SINGAPORE",
+        "portOfLoad": "SANTOS",
+        "portOfDischarge": "SINGAPORE",
+        "temperature": {
+            "unit": "",
+            "value": ""
+        },
+        "humidity": "",
+        "gensetRequired": false,
+        "travelType": "SEA",
+        "containerDetails": {
+            "code": "",
+            "quantity": ""
+        },
+        "weight": {
+            "unit": "",
+            "value": ""
+        },
+        "commodityType": "",
+        "hazardous": {
+            "hazCode": "",
+            "imoClassType": "",
+            "packageCount": "",
+            "packageType": "",
+            "packageGroup": ""
+        },
+        "voyageInfo": {
+            "vesselName": "NAVEGANTES EXPRESS",
+            "voyageNumber": "",
+            "imoNumber": "",
+            "departureEstimated": "",
+            "arrivalEstimated": ""
+        }
+    },
+    "shipmentDetails": {
+        "shipmentDate": "",
+        "containerPickUpDate": "",
+        "railCutOffDate": "",
+        "portCutOffDate": "",
+        "vgmCutoffDate": "",
+        "portOpenDate": "",
+        "siCutOffDate": "",
+        "shipOnBoardDate": "",
+        "vent": ""
+    },
+    "containers": [
+        {
+            "containerId": "BGBU5O78458",
+            "type": ""
+        }
+    ]
+}

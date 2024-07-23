@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3eccd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+        .file-input {
+            margin: 30px 0;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+        label:hover {
+            background-color: #0056b3;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #70c4f1;
+            color: #e64343;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #5622a2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload File</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="file-input">
+                <label for="fileUpload" id="fileLabel">Choose a file (Image or PDF)</label>
+                <input type="file" id="fileUpload" name="file" accept="image/*,application/pdf">
+            </div>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('fileUpload').addEventListener('change', function() {
+            const fileInput = document.getElementById('fileUpload');
+            const fileLabel = document.getElementById('fileLabel');
+            if (fileInput.files.length > 0) {
+                fileLabel.textContent = 'File Selected ☑️';
+            } else {
+                fileLabel.textContent = 'Choose a file (Image or PDF)';
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const fileInput = document.getElementById('fileUpload');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    setTimeout(()=>{
+                      alert('Pdf data is stored in Mongodb in Json form....');
+                    },4000)
+                    alert('File successfully uploaded');
+                } else {
+                    alert('Failed to upload file');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while uploading the file');
+            }
+        });
+    </script>
+</body>
+</html>
