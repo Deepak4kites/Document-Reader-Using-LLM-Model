@@ -71,7 +71,7 @@ except Exception as e:
 chat = ChatGroq(
     temperature=0,
     model="llama3-70b-8192",
-    api_key="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"
+    api_key=""
 )
 
 
